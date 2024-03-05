@@ -1,0 +1,19 @@
+<!-- registroAlumnos/templates/registroAlumnos/crearAlumno.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Alumno</title>
+    <!-- Añade aquí cualquier enlace a CSS o JavaScript que necesites -->
+</head>
+<body>
+    <h1>Crear Nuevo Alumno</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Alumno</button>
+    </form>
+    <a href="{% url 'listarAlumno' %}">Volver a la lista de alumnos</a>
+</body>
+</html>
+
