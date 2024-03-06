@@ -61,7 +61,7 @@
 
         .botones{
             position: absolute;
-            top: 25px;
+            top: 20px;
             right: 20px;
         }
     
@@ -89,10 +89,10 @@
                     <td>{{ alumno.apellidos }}</td>
                     <td>{{ alumno.carnet }}</td>
                     <td>{{ alumno.correoElectronico }}</td>
-                    <td>{{ alumno.fechaNacimiento }}</td>
+                    <td>{{ alumno.fechaNacimiento|date:"d-m-Y" }}</td>
                     <td>
                         <a href="{% url 'modificarAlumno' alumno.id %}">Editar</a>
-                        <a href="{% url 'eliminarAlumno' alumno.id %}">Eliminar</a>
+                        <a href="{% url 'eliminarAlumno' alumno.id %}" >Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -103,5 +103,7 @@
         <a href="{% url 'crearAlumno' %}">Crear nuevo alumno</a>
         <a href="{% url 'estadisticasEdad' %}">Estadisticas por Edad</a>
     </div>
+
+        
 </body>
 </html>

@@ -44,16 +44,17 @@
         }
         
         a {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            margin-top: 20px;
             padding: 10px 15px;
             background-color: navy; /* A darker blue */
             color: white;
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s ease;
+        }
+        .botones{
+            position: absolute;
+            top: 30px;
+            right: 20px;
         }
         
         a:hover {
@@ -67,6 +68,11 @@
         {{ form.as_p }}
         <button type="submit">Actualizar Alumno</button>
     </form>
-    <a href="{% url 'listarAlumno' %}">Volver a la lista de alumnos</a>
+    <div class="botones">
+        
+        <a class="botonCancelar" href="{% url 'listarAlumno' %}">Cancelar</a>
+        <a href="{% url 'listarAlumno' %}">Volver a la lista de alumnos</a>
+
+    </div>
 </body>
 </html>
