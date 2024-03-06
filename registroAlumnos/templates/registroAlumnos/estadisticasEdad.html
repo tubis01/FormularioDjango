@@ -1,0 +1,17 @@
+<!-- registroAlumnos/templates/registroAlumnos/estadisticas_edad.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas por Edad</title>
+</head>
+<body>
+    <h1>Estadísticas de Alumnos por Edad</h1>
+    <ul>
+    {% for edad, cantidad in estadisticas %}
+        <li>Edad: {{ edad }} años - Cantidad: {{ cantidad }}</li>
+    {% endfor %}
+    <a href="{% url 'listarAlumno' %}">Ver lista de alumnos</a>
+    </ul>
+</body>
+</html>

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Alumno
 from .formulario import AlumnoForm  # Asegúrate de haber creado AlumnoForm en forms.py
+from collections import Counter #para contar los alumnos que hay de cada edad
+from datetime import date
 
 # Vista para listar alumnos
 def listarAlumno(request):
@@ -37,3 +39,18 @@ def eliminarAlumno(request, pk):
         alumno.delete()
         return redirect('listarAlumno')
     return render(request, 'registroAlumnos/eliminarAlumno.html', {'alumno': alumno})
+
+# vista para estadisticas de alumnos por edad
+def estadisticas_edad(request):
+    alumnos = Alumno.objects.all()
+    edades = [calcular_edad(alumno.fechaNacimiento) for alumno in alumnos]
+    conteo_edades = Counter(edades)
+    estadisticas = sorted(conteo_edades.items())
+    return render(request, 'registroAlumnos/estadisticasEdad.html', {'estadisticas': estadisticas})
+
+
+
+def calcular_edad(fecha_nacimiento):
+    hoy = date.today()
+    edad = hoy.year - fecha_nacimiento.year - ((hoy.month, hoy.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
+    return edad
