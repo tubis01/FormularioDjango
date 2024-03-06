@@ -4,7 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Alumno</title>
-</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(81, 81, 185, 0.7); /* Dark blue with opacity */
+            color: rgb(11, 1, 1);
+            text-align: center;
+            padding-top: 75px;
+        }
+        .formulario{
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        input, button {
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #777;
+            padding: 10px;
+            width: calc(100% - 22px); /* Input width - border - padding */
+        }
+        
+        button {
+            background-color: navy; /* A darker blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: midnightblue;
+        }
+        
+        a {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: navy; /* A darker blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        a:hover {
+            background-color: midnightblue;
+        }
+    </style>
 <body>
     <h1>Editar Alumno</h1>
     <form method="post">

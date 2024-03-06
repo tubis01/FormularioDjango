@@ -1,17 +1,83 @@
-<!-- registroAlumnos/templates/registroAlumnos/estadisticas_edad.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Estadísticas por Edad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(81, 81, 185, 0.7); /* Azul oscuro con opacidad */
+            color: rgb(11, 1, 1);
+            text-align: center;
+            padding-top: 20px;
+        }
+    
+        table {
+            margin: auto;
+            width: 60%; /* Ajusta según necesidades */
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd; /* Bordes claros para la tabla */
+        }
+    
+        th {
+            background-color: rgba(81, 81, 185, 0.9); /* Cabecera de la tabla en azul más oscuro */
+            color: white;
+        }
+    
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    
+        tr:hover {
+            background-color: rgba(230, 230, 255, 0.8);
+        }
+    
+        a {
+            background-color: navy; /* Un azul más oscuro */
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+    
+        a:hover {
+            background-color: midnightblue;
+        }
+    
+        .botones {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    
 </head>
 <body>
     <h1>Estadísticas de Alumnos por Edad</h1>
-    <ul>
-    {% for edad, cantidad in estadisticas %}
-        <li>Edad: {{ edad }} años - Cantidad: {{ cantidad }}</li>
-    {% endfor %}
-    <a href="{% url 'listarAlumno' %}">Ver lista de alumnos</a>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Edad</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for edad, cantidad in estadisticas %}
+                <tr>
+                    <td>{{ edad }} años</td>
+                    <td>{{ cantidad }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="botones">
+        <a href="{% url 'listarAlumno' %}">Ver lista de alumnos</a>
+    </div>
 </body>
 </html>

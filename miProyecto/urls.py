@@ -29,6 +29,7 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registroAlumnos/', include('registroAlumnos.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     re_path(r'^$', RedirectView.as_view(url='/registroAlumnos/crearAlumno', permanent=False)),  # Redirecciona la raíz
 ]
 
