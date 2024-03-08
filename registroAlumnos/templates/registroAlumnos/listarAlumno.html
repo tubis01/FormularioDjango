@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgba(81, 81, 185, 0.7); /* Azul oscuro con opacidad */
+            background-color: rgba(81, 81, 185, 0.7); 
             color: rgb(11, 1, 1);
             text-align: center;
             padding-top: 20px;
@@ -27,12 +27,12 @@
         th, td {
             text-align: left;
             padding: 8px;
-            border: 1px solid #ddd; /* Bordes claros para la tabla */
+            border: 1px solid #ddd; 
             color: rgb(11, 1, 1);
         }
     
         th {
-            background-color: rgba(81, 81, 185, 0.9); /* Cabezera de la tabla en azul más oscuro */
+            background-color: rgba(81, 81, 185, 0.9); 
             color: white;
         }
     
@@ -45,7 +45,7 @@
         }
     
         a, button {
-            background-color: navy; /* Un azul más oscuro */
+            background-color: navy; 
             color: white;
             padding: 5px 10px;
             margin: 5px;
@@ -73,21 +73,26 @@
 </head>
 <body>
     <h1>Lista de Alumnos</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="container">
         <table>
             <tr>
+                <th>Carnet</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
-                <th>Carnet</th>
                 <th>Correo Electrónico</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Acciones</th>
             </tr>
             {% for alumno in alumnos %}
                 <tr>
+                    <td>{{ alumno.carnet }}</td>
                     <td>{{ alumno.nombres }}</td>
                     <td>{{ alumno.apellidos }}</td>
-                    <td>{{ alumno.carnet }}</td>
                     <td>{{ alumno.correoElectronico }}</td>
                     <td>{{ alumno.fechaNacimiento|date:"d-m-Y" }}</td>
                     <td>

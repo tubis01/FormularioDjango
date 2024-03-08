@@ -1,4 +1,4 @@
-<!-- registroAlumnos/templates/registroAlumnos/eliminarAlumno.html -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,31 +7,42 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgba(81, 81, 185, 0.7); /* Azul oscuro con opacidad */
+            background-color: rgba(34, 146, 225, 0.5); 
             color: rgb(11, 1, 1);
             text-align: center;
-            padding-top: 50px;
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; 
+        }
+    
+        .modal {
+            background-color: rgba(81, 81, 185, 0.9); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            width: 80%; 
+            max-width: 500px;
+            text-align: center;
         }
     
         h1, p {
             color: white;
-        }
-    
-        form, .botones {
-            margin-top: 20px;
+            margin: 0 0 20px 0; 
         }
     
         button, a {
-            background-color: navy; /* Un azul más oscuro */
+            background-color: navy; 
             color: white;
             padding: 10px 15px;
             border: none;
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s ease;
-            cursor: pointer; /* Asegura que el cursor cambie a mano al pasar sobre el botón */
-            display: inline-block; /* Mantiene los botones en línea */
-            margin: 5px; /* Espacio entre botones */
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
         }
     
         button:hover, a:hover {
@@ -41,12 +52,15 @@
     
 </head>
 <body>
-    <h1>Eliminar Alumno</h1>
-    <p>¿Estás seguro de que quieres eliminar a "{{ alumno.nombres }} {{ alumno.apellidos }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Eliminar</button>
-    </form>
-    <a href="{% url 'listarAlumno' %}">Cancelar</a>
+    <div class="modal">
+        <h1>Eliminar Alumno</h1>
+        <p>¿Estás seguro de que quieres eliminar a "{{ alumno.nombres }} {{ alumno.apellidos }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar</button>
+        </form>
+        <a href="{% url 'listarAlumno' %}">Cancelar</a>
+    </div>
 </body>
+
 </html>
